@@ -59,17 +59,28 @@ body {
     position: fixed;
     top: 0;
     right: 25em;
-    pointer-events: none;
+    pointer-events: none; /* Disable mouse interaction for areas between the buttons. */
     z-index: 500;
 }
 
+/* Re-enable button interactions for buttons themselves. */
 #overlay .btn {
+    pointer-events: all;
+}
+
+/* Re-enable button interactions for hamburger menu. */
+#overlay .dropdown {
     pointer-events: all;
 }
 
 /* Hide nav pad on medium screens. */
 .nav-hidden-md {
     display: none;
+}
+
+/* Show certain buttons on only on bigger screens. */
+.nav-hidden-sm {
+    display: inherit;
 }
 
 @media only screen and (max-width: 767px) {
@@ -81,6 +92,10 @@ body {
     /* Show nav pad on small screens. */
     .nav-hidden-md {
         display: table-row;
+    }
+    /* Hide certain buttons on small screens. */ 
+    .nav-hidden-sm {
+        display: none;
     }
 }
 
@@ -366,7 +381,7 @@ td.v-bottom {
     text-decoration: underline;
     cursor: pointer;
     color: #eeeeec;
-}    
+}
 
 /*
  * Commands and hyper links: underlined.
@@ -374,11 +389,11 @@ td.v-bottom {
 .manip-cmd, .manip-link {
     text-decoration: underline;
     cursor: pointer;
-}    
+}
 
 a.manip-link, a.manip-link:hover {
     color: inherit;
-}    
+}
 
 /*
  * Status bars
@@ -403,7 +418,7 @@ a.manip-link, a.manip-link:hover {
 
 #stats #moves {
     background-color: #055705;
-}    
+}
 
 @media only screen and (max-width: 767px) {
     #stats .progress {

@@ -12,18 +12,59 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;subset=cyrillic" rel="stylesheet"></link>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" ></link>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
-        <link href="main.css?1.33" rel="stylesheet" type="text/css"></link>
+        <link href="main.css?1.34" rel="stylesheet" type="text/css"></link>
     </head>
     <body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         <div id="rpc-events"></div>
         <div id="page" class="flexcontainer-column">
             <div class="main-content flexcontainer-row flex-grow-shrink-auto">
                 <div id="terminal-wrap" class="flex-grow-shrink-auto">
                     <div id="overlay">
+                            <div class="dropdown" style="position: fixed; left: 2px; top: 2px;">
+                                <button class="btn btn-sm btn-ctrl btn-outline-primary dropdown-toggle navbar-toggler" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i style="font-size: 1.5em;" class="fa fa-bars"></i>
+                                </button>
+                                <div style="font-size: 1.5em;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Информация</a>
+                                    <a class="dropdown-item" href="#">Параметры</a>
+                                    <a class="dropdown-item" href="#">Воздействия</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal" href="#">Группа</a>
+                                    <a class="dropdown-item" href="#">Квесты</a>
+                                    <a class="dropdown-item" href="#">Кто в мире</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/help" target="_blank">Карты и пути</a>
+                                    <a class="dropdown-item" href="/help" target="_blank">Поиск вещей</a>
+                                    <a class="dropdown-item" href="/help" target="_blank">Справка</a>
+                                    <a class="dropdown-item" href="/help" target="_blank">ЧАВО</a>
+                                </div>
+                            </div>
+
                             <table id="nav" aria-hidden="true">
                                 <tr>
-                                    <td><button id="logs-button" type="button" class="btn btn-sm btn-ctrl btn-outline-primary" aria-label="логи"> <i class="fa fa-download"></i> </button></td>
-                                    <td><button id="settings-button" type="button" class="btn btn-sm btn-ctrl btn-outline-primary" data-toggle="modal" data-target="#settings-modal" aria-label="настройки"> <i class="fa fa-cog"></i> </button></td>
+
+                                    <td><button id="logs-button" type="button" class="nav-hidden-sm btn btn-sm btn-ctrl btn-outline-primary" aria-label="логи"> <i class="fa fa-download"></i> </button></td>
+                                    <td><button id="settings-button" type="button" class="nav-hidden-sm btn btn-sm btn-ctrl btn-outline-primary" data-toggle="modal" data-target="#settings-modal" aria-label="настройки"> <i class="fa fa-cog"></i> </button></td>
                                     <td><button id="map-button" type="button" class="btn btn-sm btn-ctrl btn-outline-primary" aria-label="карта"> <i class="fa fa-map"></i> </button></td>
                                     <td><button id="font-plus-button" type="button" class="btn btn-sm btn-ctrl btn-outline-primary" aria-hidden="true"> <i class="fa fa-plus"></i> </button></td>
                                     <td><button id="font-minus-button" type="button" class="btn btn-sm btn-ctrl btn-outline-primary" aria-hidden="true"> <i class="fa fa-minus"></i> </button></td>
@@ -31,7 +72,7 @@
                                 <tr class="nav-hidden-md">
                                     <td></td>
                                     <td></td>
-                                    <td><button type="button" data-cmd="scan" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><i class="fa  fa-fw fa-refresh"></i></button></td>
+                                    <td><button type="button" data-cmd="l" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"> <i class="fa fa-fw  fa-eye"></i></button></td>
                                     <td><button type="button" data-cmd="n" data-long-cmd="отпер север|откр север" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><span>N</span></button></td>
                                     <td><button type="button" data-cmd="u" data-long-cmd="отпер вверх|откр вверх" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><span>U</span></button></td>
                                 </tr>
@@ -39,7 +80,7 @@
                                     <td></td>
                                     <td></td>
                                     <td><button type="button" data-cmd="w" data-long-cmd="отпер запад|откр запад" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><span>W</span></button></td>
-                                    <td><button type="button" data-cmd="l" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"> <i class="fa fa-fw  fa-eye"></i></button></td>
+                                    <td><button type="button" data-cmd="scan" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><i class="fa  fa-fw fa-refresh"></i></button></td>
                                     <td><button type="button" data-cmd="e" data-long-cmd="отпер восток|откр восток" class="btn btn-sm btn-ctrl btn-keypad btn-outline-primary"><span>E</span></button></td>
                                 </tr>
                                 <tr class="nav-hidden-md">
@@ -202,7 +243,7 @@
         <tr><td>Радуга</td><td>радужный щит</td><td>rainbow shield</td><td>награда за глобальный квест</td></tr>
         <tr><td>Мантия</td><td>демоническая мантия</td><td>demonic mantle</td><td>награда за глобальный квест</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, команду 'группаумений' ('glist') по каждой группе и справку по каждому навыку.
                         </p>
@@ -221,7 +262,7 @@
                         </button>
                     </div>
                     <div class="modal-body"><p>В этой колонке видны воздействия из группы обнаружения (detection),
-позволяющие видеть невидимое, скрытое и так далее.                        
+позволяющие видеть невидимое, скрытое и так далее.
 Вот список сокращенных названий воздействий и полные русские и английские названия соответствующих навыков.
 <table class="table table-striped">
     <thead class="thead"><th>Видно как</th><th>Навык по-русск</th><th>Навык по-англ</th><th>Группа</th></thead>
@@ -239,7 +280,7 @@
         <tr><td>Жизнь</td><td>обнаружить жизнь</td><td>detect life</td><td>особенность формы вампира</td></tr>
         <tr><td>Инфра</td><td>тепловое зрение</td><td>infravision</td><td>заклинания усиления</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, команду 'группаумений' ('glist') по каждой группе и справку по каждому навыку.
                         </p>
@@ -258,7 +299,7 @@
                         </button>
                     </div>
                     <div class="modal-body"><p>В этой колонке видны различные иллюзии (illusion), а также
-воздействия из группы транспортных заклинаний (transport), такие как полет и полупрозрачность.                        
+воздействия из группы транспортных заклинаний (transport), такие как полет и полупрозрачность.
 Вот список сокращенных названий воздействий и полные русские и английские названия соответствующих навыков.
 <table class="table table-striped">
     <thead class="thead"><th>Видно как</th><th>Навык по-русск</th><th>Навык по-англ</th><th>Группа</th></thead>
@@ -272,7 +313,7 @@
         <tr><td>Прозр</td><td>прохождение преград</td><td>pass door</td><td>заклинания перемещения, расовое</td></tr>
         <tr><td>МБлок</td><td>ментальная блокада</td><td>mental block</td><td>заклинания перемещения</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, команду 'группаумений' ('glist') по каждой группе и справку по каждому навыку.
                         </p>
@@ -311,7 +352,7 @@
         <tr><td>Клич</td><td>боевой клич</td><td>warcry</td><td>мастер боя</td></tr>
         <tr><td>Лес</td><td>лесной бой</td><td>forest fighting</td><td>мастер боя</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, команду 'группаумений' ('glist') по каждой группе и справку по каждому навыку.
                         </p>
@@ -360,7 +401,7 @@
         <tr><td>НеРули</td><td>отстранение</td><td>dismiss</td><td>клан Ruler</td></tr>
         <tr><td>АураПр</td><td>аура правителя</td><td>ruler aura</td><td>клан Ruler</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, справку имяклана умения, и справку по каждому навыку.
                         </p>
@@ -402,7 +443,7 @@
         <tr><td>Сосуд</td><td>волшебный сосуд</td><td>magic jar</td><td>магия очарования</td></tr>
         <tr><td>Анафем</td><td>анафема</td><td>anathema</td><td>проклятия</td></tr>
     </tbody>
-</table>    
+</table>
 
 Также смотри подсказку для основного окна воздействий, команду 'группаумений' ('glist') по каждой группе и справку по каждому навыку.
                         </p>
@@ -427,7 +468,7 @@
 
 <p>колонка <b>Трансп</b>: заклинания из групп транспортной магии и иллюзии, а также подкрадывание и т.п. </p>
 <p>колонка <b>Усилен</b>: заклинания и эффекты из групп усиления, благословления, медитации и мастер боя</p>
-<p>колонка <b>Обнаруж</b>: различные обнаружения</p>  
+<p>колонка <b>Обнаруж</b>: различные обнаружения</p>
 <p>колонка <b>Защита</b>: различные защитные заклинания</p>
 <p>колонка <b>Отриц</b>: негативные воздействия</p>
 <p>колонка <b>Клан</b>: клановые умения и заклинания, положительные и негативные</p>
@@ -459,7 +500,7 @@
                 </div>
             </div>
         </div>
-     
+
         <div id="hint-room" class="modal fade hints" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -557,16 +598,16 @@
                                 <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body"><p>В этом окне отображается информация о всех членах группы, в которой ты состоишь. 
+                    <div class="modal-body"><p>В этом окне отображается информация о всех членах группы, в которой ты состоишь.
 Группа называется в честь своего лидера ('группа такого-то'). Первой строкой отображается состояние лидера,
 затем всех остальных персонажей, следом - всех домашних животных и призванных существ согрупников.</p>
-<p>                        
+<p>
 Колонки таблицы:<br/>
 <b>Имя</b> - то как тебе видно имя персонажа.<br/>
 <b>Ур.</b> - текущий уровень.<br/>
 <b>Здор.</b> - здоровье в процентах. Здоровье меняет свой цвет в зависимости от нанесенных повреждений.<br/>
 <b>Опыт</b> - сколько осталось опыта до следующего уровня.<br/>
-</p>    
+</p>
 <p>Подробнее читай: ? группа (? group).</p>
                     </div>
                 </div>
@@ -589,8 +630,8 @@
 надетых вещей и наложенных заклинаний. Так, заклинание 'гигантская сила' увеличит реальную силу 17 до 20, и в таблице
 будет отображаться 17 (20).</p>
 <p>Подробнее читай: ? характеристики, ? тренировать (? stats, ? train).</p>
-                        
-<p>                        
+
+<p>
 Список характеристик:<br/>
 <b>Сила</b> - читай ? сила<br/>
 <b>Ум</b> - читай ? интеллект<br/>
@@ -598,7 +639,7 @@
 <b>Ловк</b> - читай ? ловкость<br/>
 <b>Слож</b> - читай ? сложение<br/>
 <b>Обая</b> - читай ? обаяние<br/>
-</p>    
+</p>
 
 <p>Во второй части окна, начиная с 20го уровня, станут видны следующие параметры:</p>
 <p>
